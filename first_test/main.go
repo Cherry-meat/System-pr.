@@ -5,7 +5,8 @@ import "math"
 func main(){
 }
 
-func firstWay(a float64, b float64) (int, error) {
+// Метод последовательного сложения (итеративный подход)
+func multiplicationByAddition(a float64, b float64) (int, error) {
     if a == 0 || b == 0 {
         return 0, nil
     }
@@ -25,7 +26,9 @@ func firstWay(a float64, b float64) (int, error) {
     
     return sign * result, nil
 }
-func secondWay(a float32, b float32)(int, error){
+
+// Метод использования обратной величины (деление)
+func multiplicationByReciprocal(a float32, b float32)(int, error){
     if b == 0 {
         return 0, nil
     }
@@ -35,7 +38,9 @@ func secondWay(a float32, b float32)(int, error){
     result := int( a/(1/b))
     return result, nil
 }
-func thirdWay(a float64, b float64)(int, error){
+
+// Метод логарифмов и экспоненты
+func multiplicationByLogarithms(a float64, b float64)(int, error){
     if a == 0 || b == 0 {
         return 0, nil
     }
@@ -51,7 +56,9 @@ func thirdWay(a float64, b float64)(int, error){
     
     return sign * int(math.Round(result)), nil
 }
-func fourthWay(a float64, b float64)(int, error){
+
+// Метод тригонометрических преобразований
+func multiplicationByTrigonometry(a float64, b float64)(int, error){
      if a == 0 || b == 0 {
         return 0, nil
     }
@@ -67,7 +74,8 @@ func fourthWay(a float64, b float64)(int, error){
     return sign * int(math.Round(result)), nil
 }
 
-func fifthWay(a float64, b float64) (int, error) {
+// Метод двоичного умножения (битовые операции)
+func multiplicationByBinary(a float64, b float64) (int, error) {
     if a == 0 || b == 0 {
         return 0, nil
     }
@@ -92,7 +100,8 @@ func fifthWay(a float64, b float64) (int, error) {
     return sign * result, nil
 }
 
-func sixthWay(a float64, b float64) (int, error) {
+// Метод рекурсивного удвоения (разделяй и властвуй)
+func multiplicationByRecursiveDoubling(a float64, b float64) (int, error) {
     if a == 0 || b == 0 {
         return 0, nil
     }
@@ -112,7 +121,7 @@ func sixthWay(a float64, b float64) (int, error) {
     absB := int(math.Abs(b))
 
     halfB := absB / 2
-    half, _ := sixthWay(float64(absA), float64(halfB))
+    half, _ := multiplicationByRecursiveDoubling(float64(absA), float64(halfB))
 
     remainder := absB % 2
     var result int
