@@ -3,7 +3,7 @@ import (
 	"fmt"
 	"sync"
 )
-
+// создается 10 горутинок, которые одновременно работают. "Sync" нужен, чтобы дождаться выполнения всех горутин.
 var wg sync.WaitGroup
 
 func main(){
@@ -20,4 +20,5 @@ func main(){
 func sum(i int){
 	fmt.Println(i)
 	wg.Done()
+
 }
